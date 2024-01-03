@@ -42,7 +42,6 @@ class UserController extends AbstractController
     #[HA\Get(path: '/test', description: '验证token')]
     public function testToken()
     {
-        return $this->response
-            ->json(['code' => 200, 'message' => 'success', 'data' => $this->auth->guard('jwt')->user()]);
+        return $this->response->json(['code' => 200, 'message' => 'success', 'data' => $this->auth->guard('jwt')->user()]);
     }
 }
