@@ -28,6 +28,7 @@
         "hyperf/guzzle": "~3.1.0",
         "hyperf/http-server": "~3.1.0",
         "hyperf/json-rpc": "~3.1.0",
+        "hyperf/kafka": "^3.1",
         "hyperf/logger": "~3.1.0",
         "hyperf/memory": "~3.1.0",
         "hyperf/model-cache": "~3.1.0",
