@@ -9,7 +9,6 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
-
 use Hyperf\Kafka\Constants\KafkaStrategy;
 
 return [
@@ -21,6 +20,7 @@ return [
         'client_id' => '', // 客户端 ID
         'max_write_attempts' => 3, // 最大写入尝试次数
         'bootstrap_servers' => [
+            // 该配置需配合dockerfile kafka KAFKA_LISTENERS
             '192.168.110.254:9092',
         ], // Kafka 服务器地址列表
         'acks' => -1, // 确认级别

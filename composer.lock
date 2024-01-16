@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "090fa6621ef2957ca926c2ea389d44ad",
+    "content-hash": "ffb681b58705cdb63f1a918eda1344a7",
     "packages": [
         {
             "name": "96qbhy/hyperf-auth",

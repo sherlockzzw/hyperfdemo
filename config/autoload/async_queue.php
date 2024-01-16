@@ -24,4 +24,18 @@ return [
             'limit' => 10,
         ],
     ],
+    'fast' => [
+        'driver' => Hyperf\AsyncQueue\Driver\RedisDriver::class,
+        'redis' => [
+            'pool' => 'default'
+        ],
+        'channel' => '{queue:fast}',
+        'timeout' => 2,
+        'retry_seconds' => 5,
+        'handle_timeout' => 10,
+        'processes' => 1,
+        'concurrent' => [
+            'limit' => 5,
+        ],
+    ],
 ];

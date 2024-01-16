@@ -12,19 +12,24 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Listener\FooRedis;
 use App\Middleware\UserAuthMiddleware;
+use App\RedisAgency\UserRedis;
 use App\Services\Factory\UserService;
+use Hyperf\Context\ApplicationContext;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\HttpServer\Annotation\AutoController;
 use Hyperf\HttpServer\Annotation\Middleware;
 use Hyperf\Kafka\Producer;
 use Hyperf\Swagger\Annotation as HA;
+use Hyperf\Swagger\Annotation\Get;
 use Psr\Http\Message\ResponseInterface;
+use Psr\SimpleCache\CacheInterface;
 use Qbhy\HyperfAuth\AuthManager;
 
 #[HA\hyperfServer('http')]
 #[AutoController]
-class UserController extends AbstractController
+class UserController extends Controller
 {
     #[Inject]
     private UserService $userService;
@@ -37,20 +42,29 @@ class UserController extends AbstractController
     {
         $user = $this->userService->getUser(2);
         $token = $this->auth->guard('jwt')->login($user);
-        return $this->success($token);
+        return $this->response->success($token);
     }
 
     #[Middleware(UserAuthMiddleware::class)]
-    #[HA\Get(path: '/test', description: '验证token')]
+    #[Get(path: '/test', description: '验证token')]
     public function testToken()
     {
-        return $this->response->json(['code' => 200, 'message' => 'success', 'data' => $this->auth->guard('jwt')->user()]);
+        return $this->response->success($this->auth->guard('jwt')->user());
     }
 
-    #[HA\Get(path: '/kafka/test', description: '测试kafka')]
+    #[Get(path: '/kafka/test', description: '测试kafka')]
     public function kafkaTest(Producer $producer)
     {
         $producer->send('hyperf', 'hyperf', 'key');
-
     }
+
+    #[Get(path: '/cache/test', description: '测试cache')]
+    public function cacheTest()
+    {
+        $redis = $this->container->get(UserRedis::class);
+        $redis->set('hyperf','hellow hyperf');
+        $data = $redis->get('hyperf');
+        return $this->response->success($data ?? []);
+    }
+
 }
