@@ -12,19 +12,14 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Listener\FooRedis;
 use App\Middleware\UserAuthMiddleware;
-use App\RedisAgency\UserRedis;
 use App\Services\Factory\UserService;
-use Hyperf\Context\ApplicationContext;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\HttpServer\Annotation\AutoController;
 use Hyperf\HttpServer\Annotation\Middleware;
-use Hyperf\Kafka\Producer;
 use Hyperf\Swagger\Annotation as HA;
 use Hyperf\Swagger\Annotation\Get;
 use Psr\Http\Message\ResponseInterface;
-use Psr\SimpleCache\CacheInterface;
 use Qbhy\HyperfAuth\AuthManager;
 
 #[HA\hyperfServer('http')]
@@ -52,20 +47,8 @@ class UserController extends Controller
         return $this->response->success($this->auth->guard('jwt')->user());
     }
 
-    #[Get(path: '/kafka/test', description: '测试kafka')]
-    public function kafkaTest(Producer $producer)
-    {
-        $producer->send('hyperf', 'hyperf', 'key');
-    }
 
-    #[Get(path: '/cache/test', description: '测试cache')]
-    public function cacheTest()
-    {
 
-        $redis = $this->container->get(UserRedis::class);
-        $redis->set('hyperf','hellow hyperf');
-        $data = $redis->get('hyperf');
-        return $this->response->success($data ?? []);
-    }
+
 
 }

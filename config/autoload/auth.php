@@ -41,7 +41,7 @@ return [
              * 必填
              * jwt 服务端身份标识
              */
-            'secret' => env('SSO_JWT_SECRET'),
+            'secret' => env('SSO_JWT_SECRET','57695CBEFE909F4EE7A6A21BD62BD967'),
 
             /*
              * 可选配置
@@ -110,7 +110,7 @@ return [
              * 必填
              * jwt 服务端身份标识
              */
-            'secret' => env('SIMPLE_JWT_SECRET'),
+            'secret' => env('SIMPLE_JWT_SECRET','57695CBEFE909F4EE7A6A21BD62BD967'),
 
             /*
              * 可选配置
