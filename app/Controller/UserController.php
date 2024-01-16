@@ -61,6 +61,7 @@ class UserController extends Controller
     #[Get(path: '/cache/test', description: '测试cache')]
     public function cacheTest()
     {
+
         $redis = $this->container->get(UserRedis::class);
         $redis->set('hyperf','hellow hyperf');
         $data = $redis->get('hyperf');
