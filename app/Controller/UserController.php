@@ -22,6 +22,7 @@ use Hyperf\Swagger\Annotation\Get;
 use Psr\Http\Message\ResponseInterface;
 use Qbhy\HyperfAuth\AuthManager;
 
+
 #[HA\hyperfServer('http')]
 #[AutoController]
 class UserController extends Controller
@@ -46,9 +47,6 @@ class UserController extends Controller
     {
         return $this->response->success($this->auth->guard('jwt')->user());
     }
-
-
-
 
 
 }

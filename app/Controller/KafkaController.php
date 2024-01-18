@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Hyperf\HttpServer\Annotation\AutoController;
-use Hyperf\HttpServer\Annotation\RequestMapping;
 use Hyperf\Kafka\Producer;
 use Hyperf\Swagger\Annotation as HA;
 use Hyperf\Swagger\Annotation\Get;
