@@ -15,7 +15,7 @@ ini_set('memory_limit', '1G');
 error_reporting(E_ALL);
 
 ! defined('BASE_PATH') && define('BASE_PATH', dirname(__DIR__, 1));
-
+date_default_timezone_set('Asia/Shanghai');
 require BASE_PATH . '/vendor/autoload.php';
 
 ! defined('SWOOLE_HOOK_FLAGS') && define('SWOOLE_HOOK_FLAGS', Hyperf\Engine\DefaultOption::hookFlags());

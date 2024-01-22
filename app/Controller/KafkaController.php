@@ -24,6 +24,9 @@ class KafkaController extends Controller
     #[Get(path: '/kafka/test', description: 'kafka测试')]
     public function kafkaTest(Producer $producer)
     {
-        $producer->send('hyperf', 'hyperf', 'key');
+        $key = 'user_key';
+        $value = json_encode(['user_id' => 2]);
+        $producer->send('hyperf', $value, $key);
+        return $this->response->success('kafka测试成功');
     }
 }
