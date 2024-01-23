@@ -10,4 +10,6 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 return [
+    //配置异步消费进程
+    Hyperf\AsyncQueue\Process\ConsumerProcess::class,
 ];

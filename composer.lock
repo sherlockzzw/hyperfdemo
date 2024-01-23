@@ -1526,16 +1526,16 @@
         },
         {
             "name": "hyperf/async-queue",
-            "version": "v3.1.2",
+            "version": "v3.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hyperf/async-queue.git",
-                "reference": "3fa6e8bcc50c2581514ffae0f15252f0198ea031"
+                "reference": "349d1f7d3eb317f2d3b8a16399d8b0e7405fdbdf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hyperf/async-queue/zipball/3fa6e8bcc50c2581514ffae0f15252f0198ea031",
-                "reference": "3fa6e8bcc50c2581514ffae0f15252f0198ea031",
+                "url": "https://api.github.com/repos/hyperf/async-queue/zipball/349d1f7d3eb317f2d3b8a16399d8b0e7405fdbdf",
+                "reference": "349d1f7d3eb317f2d3b8a16399d8b0e7405fdbdf",
                 "shasum": ""
             },
             "require": {
@@ -1599,7 +1599,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2023-12-11T03:14:01+00:00"
+            "time": "2024-01-12T01:57:51+00:00"
         },
         {
             "name": "hyperf/cache",
