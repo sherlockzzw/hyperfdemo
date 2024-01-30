@@ -57,7 +57,7 @@ class UserController extends Controller
         return $this->response->success($this->auth->guard('jwt')->user());
     }
 
-    #[Get(path: '/queue', description: 'queue测试')]
+    #[Get(path: '/queue/test', description: 'queue测试')]
     public function queueTest()
     {
         $this->service->push(['userId' => 2], 60);
